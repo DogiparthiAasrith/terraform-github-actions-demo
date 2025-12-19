@@ -1,7 +1,23 @@
 terraform {
+  required_version = ">= 1.11.0"
+
   backend "s3" {
+    # 🔹 Existing S3 bucket (must already exist)
     bucket = "terraform-tfstate-aasrith-2025-usw2"
-    key    = "ec2/terraform.tfstate"
-    region = "us-east-1"   # ✅ MUST MATCH BUCKET REGION
+
+    # 🔹 State file path
+    key = "ec2/terraform.tfstate"
+
+    # ✅ MUST match the bucket's actual region
+    region = "us-east-1"
+
+    # ✅ Native S3 locking (NO DynamoDB)
+    use_lockfile = true
+
+    # 🔐 Encrypt state file at rest
+    encrypt = true
   }
 }
+
+
+
