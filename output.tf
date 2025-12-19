@@ -1,14 +1,11 @@
 output "ec2_instance_id" {
-  description = "EC2 Instance ID"
-  value       = aws_instance.demo_ec2.id
+  value = aws_instance.demo_ec2.id
 }
 
-output "ec2_public_ip" {
-  description = "Public IP address of EC2"
-  value       = aws_instance.demo_ec2.public_ip
+output "lambda_function_name" {
+  value = aws_lambda_function.demo_lambda.function_name
 }
 
-output "ec2_public_dns" {
-  description = "Public DNS of EC2"
-  value       = aws_instance.demo_ec2.public_dns
+output "api_gateway_url" {
+  value = aws_apigatewayv2_api.http_api.api_endpoint
 }
