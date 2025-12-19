@@ -1,4 +1,7 @@
 variable "instance_type" {
-  description = "EC2 instance type"
-  default     = "t2.micro"
+  default = "t2.micro"
+}
+
+variable "lambda_function_name" {
+  default = "demo_lambda_function"
 }
