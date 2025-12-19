@@ -87,3 +87,30 @@ resource "aws_lambda_permission" "api_gateway_permission" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.http_api.execution_arn}/*/*"
 }
+
+
+# ---------------------------
+# Additional Service 1: S3 Bucket (for native lock testing)
+# ---------------------------
+resource "random_id" "s3_suffix" {
+  byte_length = 4
+}
+
+resource "aws_s3_bucket" "native_lock_test_bucket" {
+  bucket = "native-lock-test-bucket-${random_id.s3_suffix.hex}"
+
+  tags = {
+    Name = "Native-S3-Lock-Test"
+  }
+}
+
+# ---------------------------
+# Additional Service 2: IAM User (for native lock testing)
+# ---------------------------
+resource "random_id" "iam_suffix" {
+  byte_length = 4
+}
+
+resource "aws_iam_user" "native_lock_test_user" {
+  name = "native-lock-test-user-${random_id.iam_suffix.hex}"
+}
