@@ -9,7 +9,7 @@ terraform {
     key = "ec2/terraform.tfstate"
 
     # ✅ MUST match the bucket's actual region
-    region = "us-west-2"
+    region = "us-east-1"
 
     # ✅ Native S3 locking (NO DynamoDB)
     use_lockfile = true
