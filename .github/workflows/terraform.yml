@@ -1,4 +1,4 @@
-name: Terraform AWS EC2
+name: Terraform AWS EC2 Lambda API
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: us-east-1  # ✅ MUST match S3 bucket region
+      AWS_DEFAULT_REGION: us-west-2
 
     steps:
       - name: Checkout repository
